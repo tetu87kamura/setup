@@ -1,0 +1,32 @@
+---
+- name: install base tools with brew
+  homebrew:
+    name:
+      - bash-completion
+      - tmux
+      - zsh
+      - peco
+      - git
+      - go-task
+      - vim
+      - direnv
+      - pwgen
+      - gawk
+      - gnu-sed
+      - jq
+      - python
+      - tig
+    state: present
+    update_homebrew: yes
+
+- name: install base tools with brew cask
+  homebrew_cask:
+    name:
+      # - sophos
+      - slack
+      - clipy
+      - google-japanese-ime
+      - google-chrome
+      - karabiner-elements
+    state: present
+    update_homebrew: yes

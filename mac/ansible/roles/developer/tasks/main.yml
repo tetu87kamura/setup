@@ -1,0 +1,9 @@
+---
+- name: install dev tools with cask
+  homebrew_cask:
+    name:
+      - docker
+      - font-inconsolata-for-powerline
+      - iterm2
+    state: present
+    update_homebrew: yes
