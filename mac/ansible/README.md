@@ -13,5 +13,5 @@ brew install ansible
 ## provision
 
 ```
-ansible-playbook site_localhost.yml -i hosts_localhost --check
+ansible-playbook sites_localhost.yml -i hosts_localhost --ask-become-pass
 ```
