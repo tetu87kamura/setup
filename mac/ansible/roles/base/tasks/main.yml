@@ -21,12 +21,13 @@
 
 - name: install base tools with brew cask
   homebrew_cask:
-    name:
-      # - sophos
-      - slack
-      - clipy
-      - google-japanese-ime
-      - google-chrome
-      - karabiner-elements
+    name: "{{ item}}"
     state: present
     update_homebrew: yes
+  with_items:
+    # - sophos
+    - slack
+    - clipy
+    - google-japanese-ime
+    - google-chrome
+    - karabiner-elements
