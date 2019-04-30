@@ -1,0 +1,12 @@
+---
+- name: install priv tools with cask
+  homebrew_cask:
+    name:
+      - kindle
+      - 1password
+      - evernote
+      - dropbox
+      # - sophos
+      # - line
+    state: present
+    update_homebrew: yes
