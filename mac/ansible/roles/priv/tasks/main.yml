@@ -6,7 +6,5 @@
       - 1password
       - evernote
       - dropbox
-      # - sophos
-      # - line
     state: present
     update_homebrew: yes
