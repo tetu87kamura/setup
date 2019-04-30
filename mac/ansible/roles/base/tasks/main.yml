@@ -1,4 +1,50 @@
 ---
+- name: customize osx default
+  become: yes
+  osx_defaults:
+    domain: "{{ item.domain }}"
+    key: "{{ item.key }}"
+    type: "{{ item.type }}"
+    value: "{{ item.value }}"
+    state: "{{ item.state | default('present') }}"
+  with_items:
+    # Finder
+    # Show Status bar in Finder （ステータスバーを表示）
+    - { domain: com.apple.finder, key: ShowStatusBar, type: bool, value: true }
+    # Show Path bar in Finder （パスバーを表示）
+    - { domain: com.apple.finder, key: ShowPathbar, type: bool, value: true }
+    # Show Tab bar in Finder （タブバーを表示）
+    - { domain: com.apple.finder, key: ShowTabView, type: bool, value: true }
+    # 隠しファイルを表示
+    - { domain: com.apple.finder, key: AppleShowAllFiles, type: bool, value: true }
+    # list 表示
+    - { domain: com.apple.finder, key: FXPreferredViewStyle, type: string, value: "Nlsv" }
+    # # Show the ~/Library directory （ライブラリディレクトリを表示、デフォルトは非表示）
+    # chflags nohidden ~/Library
+
+    # 拡張子表示
+    - { domain: NSGlobalDomain, key: AppleShowAllExtensions, type: bool, value: true }
+
+    # dock を隠す
+    - { domain: com.apple.dock, key: autohide, type: bool, value: true }
+    # バッテリーのパーセントを表示
+    - { domain: com.apple.menuextra.battery, key: ShowPercen, type: string, value: "YES" }
+    # 日付表示設定、曜日を表示
+    - { domain: com.apple.menuextra.clock, key: DateFormat, type: string, value: "EEE H:mm:ss" }
+
+    # スクリーンセーバー
+    - { domain: /Library/Preferences/com.apple.screensaver, key: loginWindowIdleTime, type: int, value: 300 }
+    # スリープまたはスクリーンセーバから復帰した際、パスワードをすぐに要求する
+    - { domain: com.apple.screensaver, key: askForPassword, type: int, value: 1 }
+    - { domain: com.apple.screensaver, key: askForPasswordDelay, type: int, value: 0 }
+
+    # firewall
+    - { domain: /Library/Preferences/com.apple.alf, key: globalstate, type: int, value: 1 }
+
+    # 以下は defaults では設定不可らしい
+    # FileVault2
+    # auto update setting
+
 - name: install base tools with brew
   homebrew:
     name:
