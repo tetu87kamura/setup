@@ -1,12 +1,11 @@
 ---
 - name: install priv tools with cask
   homebrew_cask:
-    name:
-      - kindle
-      - 1password
-      - evernote
-      - dropbox
-      # - sophos
-      # - line
+    name: "{{ item}}"
     state: present
     update_homebrew: yes
+  with_items:
+    - kindle
+    - 1password
+    - evernote
+    - dropbox

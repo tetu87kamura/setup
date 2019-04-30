@@ -71,7 +71,6 @@
     state: present
     update_homebrew: yes
   with_items:
-    # - sophos
     - slack
     - clipy
     - google-japanese-ime
