@@ -31,7 +31,7 @@ function run {
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
     echo "[INFO] $(date "+%Y/%m/%d %H:%M:%S") install python & ansible ..."
-    brew install git, python, ansible
+    brew install git python ansible
 
     echo "[INFO] $(date "+%Y/%m/%d %H:%M:%S") clone setup repo ..."
     mkdir "${PROJECT_DIR}"
