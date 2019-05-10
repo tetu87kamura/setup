@@ -25,8 +25,8 @@
     - { domain: NSGlobalDomain, key: AppleShowAllExtensions, type: bool, value: true }
     # hide dock (Need "killall Dock")
     - { domain: com.apple.dock, key: autohide, type: bool, value: true }
-    - { domain: com.apple.menuextra.battery, key: ShowPercen, type: string, value: "YES" }
     # show battery percent(Need "killall SystemUIServer")
+    - { domain: com.apple.menuextra.battery, key: ShowPercent, type: string, value: "YES" }
     # show date setting
     - { domain: com.apple.menuextra.clock, key: DateFormat, type: string, value: "EEE H:mm:ss" }
     # set screensaver
@@ -60,7 +60,7 @@
 
 - name: install base tools with brew cask
   homebrew_cask:
-    name: "{{ item}}"
+    name: "{{ item }}"
     state: present
     update_homebrew: yes
   with_items:
