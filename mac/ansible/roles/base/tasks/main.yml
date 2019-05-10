@@ -52,7 +52,6 @@
       - tmux
       - zsh
       - peco
-      - git
       - go-task
       - vim
       - direnv
@@ -60,7 +59,6 @@
       - gawk
       - gnu-sed
       - jq
-      - python
       - tig
     state: present
     update_homebrew: yes
